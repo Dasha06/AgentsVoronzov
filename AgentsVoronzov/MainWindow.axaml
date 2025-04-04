@@ -1,0 +1,126 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700"
+        x:Class="AgentsVoronzov.MainWindow"
+        Title="AgentsVoronzov">
+    <DockPanel>
+        <StackPanel
+            DockPanel.Dock="Top"
+            Orientation="Horizontal"
+            Height="50">
+            <Button x:Name="CreateAgentButton" Click="CreateAgent_OnClick" Content="Добавить агента" Margin="10,0,0,0"/>
+            <TextBlock Text="Сортировать: " Margin="10, 18"></TextBlock>
+            <ComboBox Margin="0,10" SelectionChanged="Sorting_SelectionChanged" Name="Sorting_Combobox">
+	            <ComboBoxItem>Наименование</ComboBoxItem>
+	            <ComboBoxItem>Размер скидки</ComboBoxItem>
+	            <ComboBoxItem>Приоритет агента</ComboBoxItem>
+	            <ComboBoxItem>Сбросить</ComboBoxItem>
+            </ComboBox>
+            <TextBlock Text="Фильтрация по типам: " Margin="10, 18"></TextBlock>
+            <ComboBox Margin="0, 10" SelectionChanged="TypeComboBox_SelectionChanged"
+                      Name="Type_ComboBox"/>
+            <TextBlock Text="Поиск" Margin="10, 18"></TextBlock>
+            <TextBox Height="20" Width="200" Margin="0, 10"></TextBox>
+        </StackPanel>
+	    
+	    <!-- <StackPanel x:Name="PaginationPanel" Orientation="Horizontal"  -->
+	    <!--             HorizontalAlignment="Center" Spacing="5" -->
+	    <!--             DockPanel.Dock="Bottom"> -->
+		   <!--  <Button x:Name="PrevButton" Content="&lt;" Click="PrevButton_Click"/> -->
+		   <!--  <Button x:Name="NextButton" Content="&gt;" Click="NextButton_Click"/> -->
+	    <!-- </StackPanel> -->
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+                <ListBox
+                    Height="600"
+					Width="920"
+					Background="#F4E8D3"
+                    SelectionMode="Multiple"
+					Name="Agentslistbox">
+					<ListBox.ItemTemplate>
+					<DataTemplate
+						x:CompileBindings="False">
+						<ScrollViewer>
+							<Grid
+								ColumnDefinitions="700,200">	
+								<StackPanel
+									Grid.Column="0">
+									
+									<StackPanel
+										Orientation="Horizontal">
+										<TextBlock
+											Text="Наименование: ">
+										</TextBlock>
+										<TextBlock
+											Text="{Binding Title}">
+										</TextBlock>
+									</StackPanel>
+									
+									<StackPanel
+										Orientation="Horizontal">
+									<TextBlock
+										Text="Количество продаж в год: ">
+										</TextBlock>
+										<TextBlock
+											Text="{Binding SellsPerYear}">
+											</TextBlock>
+									</StackPanel>
+									
+									<StackPanel
+										Orientation="Horizontal">
+										<TextBlock
+											Text="Размер скидки: ">
+										</TextBlock>
+										<TextBlock
+											Text="{Binding Skidka}">
+										</TextBlock>
+									</StackPanel>
+									
+									<StackPanel
+										Orientation="Horizontal">
+											<TextBlock
+												Text="Телефон: ">
+											</TextBlock>
+											<TextBlock
+												Text="{Binding Phone}" >
+											</TextBlock>
+									</StackPanel>
+									
+									<StackPanel
+										Orientation="Horizontal">
+										<TextBlock
+											Text="Тип: ">
+										</TextBlock>
+										<TextBlock
+											Text="{Binding AgentType.Title}">
+										</TextBlock>
+									</StackPanel>
+									
+								</StackPanel>
+								
+								<StackPanel
+									Grid.Column="1">
+									<Button
+										Background="#67BA80"
+										Click="EditButton_Click"
+										Content="Редактировать"
+										Tag="{Binding Id}">
+									</Button>
+									
+									<Button
+										Background="#67BA80"
+										Click="RealizButton_Click"
+										Content="Просмотреть реализацию"
+										Tag="{Binding Id}">
+										</Button>
+								</StackPanel>
+							</Grid>
+						</ScrollViewer>
+					</DataTemplate>
+					</ListBox.ItemTemplate></ListBox>
+        </StackPanel>
+    </DockPanel>
+</Window>
