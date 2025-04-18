@@ -7,12 +7,13 @@
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
-
+    
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.2.1"/>
-        <PackageReference Include="Avalonia.Desktop" Version="11.2.1"/>
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.1"/>
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.1"/>
+        <PackageReference Include="AsyncImageLoader.Avalonia" Version="3.3.0" />
+        <PackageReference Include="Avalonia" Version="11.2.1" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.2.1" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.1" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.1" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Include="Avalonia.Diagnostics" Version="11.2.1">
             <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
@@ -24,5 +25,145 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11" />
+        <PackageReference Include="Paginator.Avalonia" Version="1.0.0" />
+        
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="Assets\" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <AvaloniaResource Include="agents\agent_1.png" />
+      <AvaloniaResource Include="agents\agent_10.png" />
+      <AvaloniaResource Include="agents\agent_100.png" />
+      <AvaloniaResource Include="agents\agent_101.png" />
+      <AvaloniaResource Include="agents\agent_102.png" />
+      <AvaloniaResource Include="agents\agent_103.png" />
+      <AvaloniaResource Include="agents\agent_104.png" />
+      <AvaloniaResource Include="agents\agent_105.png" />
+      <AvaloniaResource Include="agents\agent_106.png" />
+      <AvaloniaResource Include="agents\agent_107.png" />
+      <AvaloniaResource Include="agents\agent_108.png" />
+      <AvaloniaResource Include="agents\agent_109.png" />
+      <AvaloniaResource Include="agents\agent_11.png" />
+      <AvaloniaResource Include="agents\agent_110.png" />
+      <AvaloniaResource Include="agents\agent_111.png" />
+      <AvaloniaResource Include="agents\agent_112.png" />
+      <AvaloniaResource Include="agents\agent_113.png" />
+      <AvaloniaResource Include="agents\agent_114.png" />
+      <AvaloniaResource Include="agents\agent_115.png" />
+      <AvaloniaResource Include="agents\agent_116.png" />
+      <AvaloniaResource Include="agents\agent_117.png" />
+      <AvaloniaResource Include="agents\agent_118.png" />
+      <AvaloniaResource Include="agents\agent_119.png" />
+      <AvaloniaResource Include="agents\agent_12.png" />
+      <AvaloniaResource Include="agents\agent_120.png" />
+      <AvaloniaResource Include="agents\agent_121.png" />
+      <AvaloniaResource Include="agents\agent_122.png" />
+      <AvaloniaResource Include="agents\agent_123.png" />
+      <AvaloniaResource Include="agents\agent_124.png" />
+      <AvaloniaResource Include="agents\agent_125.png" />
+      <AvaloniaResource Include="agents\agent_126.png" />
+      <AvaloniaResource Include="agents\agent_127.png" />
+      <AvaloniaResource Include="agents\agent_128.png" />
+      <AvaloniaResource Include="agents\agent_129.png" />
+      <AvaloniaResource Include="agents\agent_13.png" />
+      <AvaloniaResource Include="agents\agent_130.png" />
+      <AvaloniaResource Include="agents\agent_14.png" />
+      <AvaloniaResource Include="agents\agent_15.png" />
+      <AvaloniaResource Include="agents\agent_16.png" />
+      <AvaloniaResource Include="agents\agent_17.png" />
+      <AvaloniaResource Include="agents\agent_18.png" />
+      <AvaloniaResource Include="agents\agent_19.png" />
+      <AvaloniaResource Include="agents\agent_2.png" />
+      <AvaloniaResource Include="agents\agent_20.png" />
+      <AvaloniaResource Include="agents\agent_21.png" />
+      <AvaloniaResource Include="agents\agent_22.png" />
+      <AvaloniaResource Include="agents\agent_23.png" />
+      <AvaloniaResource Include="agents\agent_24.png" />
+      <AvaloniaResource Include="agents\agent_25.png" />
+      <AvaloniaResource Include="agents\agent_26.png" />
+      <AvaloniaResource Include="agents\agent_27.png" />
+      <AvaloniaResource Include="agents\agent_28.png" />
+      <AvaloniaResource Include="agents\agent_29.png" />
+      <AvaloniaResource Include="agents\agent_3.png" />
+      <AvaloniaResource Include="agents\agent_30.png" />
+      <AvaloniaResource Include="agents\agent_31.png" />
+      <AvaloniaResource Include="agents\agent_32.png" />
+      <AvaloniaResource Include="agents\agent_33.png" />
+      <AvaloniaResource Include="agents\agent_34.png" />
+      <AvaloniaResource Include="agents\agent_35.png" />
+      <AvaloniaResource Include="agents\agent_36.png" />
+      <AvaloniaResource Include="agents\agent_37.png" />
+      <AvaloniaResource Include="agents\agent_38.png" />
+      <AvaloniaResource Include="agents\agent_39.png" />
+      <AvaloniaResource Include="agents\agent_4.png" />
+      <AvaloniaResource Include="agents\agent_40.png" />
+      <AvaloniaResource Include="agents\agent_41.png" />
+      <AvaloniaResource Include="agents\agent_42.png" />
+      <AvaloniaResource Include="agents\agent_43.png" />
+      <AvaloniaResource Include="agents\agent_44.png" />
+      <AvaloniaResource Include="agents\agent_45.png" />
+      <AvaloniaResource Include="agents\agent_46.png" />
+      <AvaloniaResource Include="agents\agent_47.png" />
+      <AvaloniaResource Include="agents\agent_48.png" />
+      <AvaloniaResource Include="agents\agent_49.png" />
+      <AvaloniaResource Include="agents\agent_5.png" />
+      <AvaloniaResource Include="agents\agent_50.png" />
+      <AvaloniaResource Include="agents\agent_51.png" />
+      <AvaloniaResource Include="agents\agent_52.png" />
+      <AvaloniaResource Include="agents\agent_53.png" />
+      <AvaloniaResource Include="agents\agent_54.png" />
+      <AvaloniaResource Include="agents\agent_55.png" />
+      <AvaloniaResource Include="agents\agent_56.png" />
+      <AvaloniaResource Include="agents\agent_57.png" />
+      <AvaloniaResource Include="agents\agent_58.png" />
+      <AvaloniaResource Include="agents\agent_59.png" />
+      <AvaloniaResource Include="agents\agent_6.png" />
+      <AvaloniaResource Include="agents\agent_60.png" />
+      <AvaloniaResource Include="agents\agent_61.png" />
+      <AvaloniaResource Include="agents\agent_62.png" />
+      <AvaloniaResource Include="agents\agent_63.png" />
+      <AvaloniaResource Include="agents\agent_64.png" />
+      <AvaloniaResource Include="agents\agent_65.png" />
+      <AvaloniaResource Include="agents\agent_66.png" />
+      <AvaloniaResource Include="agents\agent_67.png" />
+      <AvaloniaResource Include="agents\agent_68.png" />
+      <AvaloniaResource Include="agents\agent_69.png" />
+      <AvaloniaResource Include="agents\agent_7.png" />
+      <AvaloniaResource Include="agents\agent_70.png" />
+      <AvaloniaResource Include="agents\agent_71.png" />
+      <AvaloniaResource Include="agents\agent_72.png" />
+      <AvaloniaResource Include="agents\agent_73.png" />
+      <AvaloniaResource Include="agents\agent_74.png" />
+      <AvaloniaResource Include="agents\agent_75.png" />
+      <AvaloniaResource Include="agents\agent_76.png" />
+      <AvaloniaResource Include="agents\agent_77.png" />
+      <AvaloniaResource Include="agents\agent_78.png" />
+      <AvaloniaResource Include="agents\agent_79.png" />
+      <AvaloniaResource Include="agents\agent_8.png" />
+      <AvaloniaResource Include="agents\agent_80.png" />
+      <AvaloniaResource Include="agents\agent_81.png" />
+      <AvaloniaResource Include="agents\agent_82.png" />
+      <AvaloniaResource Include="agents\agent_83.png" />
+      <AvaloniaResource Include="agents\agent_84.png" />
+      <AvaloniaResource Include="agents\agent_85.png" />
+      <AvaloniaResource Include="agents\agent_86.png" />
+      <AvaloniaResource Include="agents\agent_87.png" />
+      <AvaloniaResource Include="agents\agent_88.png" />
+      <AvaloniaResource Include="agents\agent_89.png" />
+      <AvaloniaResource Include="agents\agent_9.png" />
+      <AvaloniaResource Include="agents\agent_90.png" />
+      <AvaloniaResource Include="agents\agent_91.png" />
+      <AvaloniaResource Include="agents\agent_92.png" />
+      <AvaloniaResource Include="agents\agent_93.png" />
+      <AvaloniaResource Include="agents\agent_94.png" />
+      <AvaloniaResource Include="agents\agent_95.png" />
+      <AvaloniaResource Include="agents\agent_96.png" />
+      <AvaloniaResource Include="agents\agent_97.png" />
+      <AvaloniaResource Include="agents\agent_98.png" />
+      <AvaloniaResource Include="agents\agent_99.png" />
+      <AvaloniaResource Include="agents\agent_default.png" />
     </ItemGroup>
 </Project>

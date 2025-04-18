@@ -2,6 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+        
         mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700"
         x:Class="AgentsVoronzov.MainWindow"
         Title="AgentsVoronzov">
@@ -15,29 +17,24 @@
             <ComboBox Margin="0,10" SelectionChanged="Sorting_SelectionChanged" Name="Sorting_Combobox">
 	            <ComboBoxItem>Наименование</ComboBoxItem>
 	            <ComboBoxItem>Размер скидки</ComboBoxItem>
-	            <ComboBoxItem>Приоритет агента</ComboBoxItem>
+	            <ComboBoxItem>Приоритет</ComboBoxItem>
 	            <ComboBoxItem>Сбросить</ComboBoxItem>
             </ComboBox>
             <TextBlock Text="Фильтрация по типам: " Margin="10, 18"></TextBlock>
             <ComboBox Margin="0, 10" SelectionChanged="TypeComboBox_SelectionChanged"
-                      Name="Type_ComboBox"/>
+                      Name="Type_ComboBox">
+            </ComboBox>
             <TextBlock Text="Поиск" Margin="10, 18"></TextBlock>
             <TextBox Height="20" Width="200" Margin="0, 10"></TextBox>
         </StackPanel>
 	    
-	    <!-- <StackPanel x:Name="PaginationPanel" Orientation="Horizontal"  -->
-	    <!--             HorizontalAlignment="Center" Spacing="5" -->
-	    <!--             DockPanel.Dock="Bottom"> -->
-		   <!--  <Button x:Name="PrevButton" Content="&lt;" Click="PrevButton_Click"/> -->
-		   <!--  <Button x:Name="NextButton" Content="&gt;" Click="NextButton_Click"/> -->
-	    <!-- </StackPanel> -->
         <StackPanel
-            Orientation="Horizontal"
+            Orientation="Vertical"
             HorizontalAlignment="Center">
-                <ListBox
+	        
+	        <ListBox
                     Height="600"
 					Width="920"
-					Background="#F4E8D3"
                     SelectionMode="Multiple"
 					Name="Agentslistbox">
 					<ListBox.ItemTemplate>
@@ -45,9 +42,15 @@
 						x:CompileBindings="False">
 						<ScrollViewer>
 							<Grid
-								ColumnDefinitions="700,200">	
+								ColumnDefinitions="120,580,200">
+								<StackPanel Grid.Column="0">
+									<asyncImageLoader:AdvancedImage 
+										Source="{Binding ImagePath}" 
+										Width="100" Height="100" 
+										Stretch="Uniform"/>
+								</StackPanel>	
 								<StackPanel
-									Grid.Column="0">
+									Grid.Column="1">
 									
 									<StackPanel
 										Orientation="Horizontal">
@@ -95,32 +98,41 @@
 											Text="Тип: ">
 										</TextBlock>
 										<TextBlock
-											Text="{Binding AgentType.Title}">
+											Text="{Binding AgentsType}">
 										</TextBlock>
 									</StackPanel>
 									
 								</StackPanel>
 								
 								<StackPanel
-									Grid.Column="1">
+									Grid.Column="2">
 									<Button
-										Background="#67BA80"
 										Click="EditButton_Click"
 										Content="Редактировать"
 										Tag="{Binding Id}">
 									</Button>
 									
 									<Button
-										Background="#67BA80"
 										Click="RealizButton_Click"
 										Content="Просмотреть реализацию"
 										Tag="{Binding Id}">
 										</Button>
+									<!-- <Button -->
+									<!-- 	IsVisible="{Binding IsSelected}" -->
+									<!-- 	Content="Изменить приоритет"> -->
+									<!-- </Button> -->
 								</StackPanel>
+								
 							</Grid>
 						</ScrollViewer>
 					</DataTemplate>
 					</ListBox.ItemTemplate></ListBox>
+	        <StackPanel x:Name="PaginationPanel" Orientation="Horizontal"
+	                    HorizontalAlignment="Center" Spacing="5">
+		        <Button x:Name="PrevButton" Content="&lt;" Click="PrevButton_Click"/>
+		        <TextBlock Name="Pages_TextBlock" Margin="5"></TextBlock>
+		        <Button x:Name="NextButton" Content="&gt;" Click="NextButton_Click"/>
+	        </StackPanel>
         </StackPanel>
     </DockPanel>
 </Window>

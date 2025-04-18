@@ -1,11 +1,49 @@
+using System;
+using System.IO;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
+
 namespace AgentsVoronzov.Models;
 
 public class AgentsList
 {
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Phone { get; set; }
+    public string AgentsType { get; set; }
+    public int SellsPerYear { get; set; }
+    public decimal Skidka { get; set; }
     
-    public string Title { get; set; }           // Наименование
-    public string Phone { get; set; }          // Телефон
-    public string AgentsType { get; set; }           // Тип (МФО, ЗАО и т.д.)
-    public int SellsPerYear { get; set; }      // Количество продаж в год
-    public decimal Skidka { get; set; }        // Размер скидки (например, 10.5%)
+    public int Priority { get; set; }
+    
+    public string? ImagePath { get; set; }
+    
+    public Bitmap? Image { get; set; }
+    
+    public Stream? LoadImage()
+    {
+        try
+        {
+            if (!string.IsNullOrEmpty(ImagePath))
+            {
+                if (File.Exists(ImagePath))
+                {
+                    return File.OpenRead(ImagePath);
+                }
+            }
+            else
+            {
+                return File.OpenRead("/agents/agent_default.png");
+            }
+            
+        }
+        catch
+        {
+            
+            Console.WriteLine("Image not found");
+            return null;
+        }
+
+        return null;
+    }
 }
