@@ -20,30 +20,5 @@ public class AgentsList
     
     public Bitmap? Image { get; set; }
     
-    public Stream? LoadImage()
-    {
-        try
-        {
-            if (!string.IsNullOrEmpty(ImagePath))
-            {
-                if (File.Exists(ImagePath))
-                {
-                    return File.OpenRead(ImagePath);
-                }
-            }
-            else
-            {
-                return File.OpenRead("/agents/agent_default.png");
-            }
-            
-        }
-        catch
-        {
-            
-            Console.WriteLine("Image not found");
-            return null;
-        }
-
-        return null;
-    }
+    
 }
