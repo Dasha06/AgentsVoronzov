@@ -26,14 +26,10 @@
         </PackageReference>
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11" />
         <PackageReference Include="Paginator.Avalonia" Version="1.0.0" />
-        
     </ItemGroup>
     
     <ItemGroup>
-      <Folder Include="Assets\" />
-    </ItemGroup>
-    
-    <ItemGroup>
+      <AvaloniaResource Include="agents\agent_0.png" />
       <AvaloniaResource Include="agents\agent_1.png" />
       <AvaloniaResource Include="agents\agent_10.png" />
       <AvaloniaResource Include="agents\agent_100.png" />
@@ -164,6 +160,5 @@
       <AvaloniaResource Include="agents\agent_97.png" />
       <AvaloniaResource Include="agents\agent_98.png" />
       <AvaloniaResource Include="agents\agent_99.png" />
-      <AvaloniaResource Include="agents\agent_default.png" />
     </ItemGroup>
 </Project>

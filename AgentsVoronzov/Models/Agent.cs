@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using Avalonia.Media.Imaging;
 
 namespace AgentsVoronzov.Models;
 
@@ -24,6 +26,56 @@ public partial class Agent
     public string? Email { get; set; }
 
     public string? Logo { get; set; }
+    
+    // public Bitmap GetImage
+    // {
+    //     get
+    //     {
+    //         if (Logo != null && Logo != "")
+    //         {
+    //             return new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "/" + Logo);
+    //         }
+    //         else
+    //         {
+    //             return new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "/agents/agent_default.png");
+    //         }
+    //     }
+    // } 
+    
+    public Bitmap GetImage
+    {
+        get
+        {
+            try
+            {
+                string baseDirectory = AppContext.BaseDirectory;
+                string defaultImagePath = Path.Combine(baseDirectory, "agents", "agent_0.png");
+
+                if (!string.IsNullOrEmpty(Logo))
+                {
+                    string logoPath = Path.Combine(baseDirectory, Logo);
+                    if (File.Exists(logoPath))
+                    {
+                        return new Bitmap(logoPath);
+                    }
+                }
+
+                if (File.Exists(defaultImagePath))
+                {
+                    return new Bitmap(defaultImagePath);
+                }
+
+                // Если ничего не найдено, возвращаем пустое изображение или кидаем исключение
+                return new Bitmap(defaultImagePath);
+            }
+            catch (Exception ex)
+            {
+                // Логирование ошибки (для отладки)
+                Console.WriteLine($"Ошибка загрузки изображения: {ex.Message}");
+                return null;
+            }
+        }
+    }
 
     public int Priority { get; set; }
 

@@ -29,13 +29,14 @@ public partial class MainWindow : Window
                 .Sum(ps => ps.ProductCount),  
             Skidka = CalculateDiscount(x.ProductSales.Sum(ps => ps.ProductCount)),
             Priority = x.Priority,
-            ImagePath = x.Logo
+            ImagePath = x.Logo,
+            Image = x.GetImage
         }).ToList();
 
     public MainWindow()
     {
         InitializeComponent();
-        Agentslistbox.ItemsSource = GetAgentsWithImages();
+        Agentslistbox.ItemsSource = agents;
         DataContext = this;
         var types = DbHelper.context.AgentTypes.Select(x => x.Title).ToList();
         types.Insert(0, "Все типы");
@@ -131,15 +132,6 @@ public partial class MainWindow : Window
         return 25;
     }
     
-    public List<AgentsList> GetAgentsWithImages()
-    {
-        // Загружаем изображения (синхронно)
-        foreach (var agent in agents)
-        {
-            agent.LoadImage();
-        }
-        return agents;
-    }
     
     
 }
