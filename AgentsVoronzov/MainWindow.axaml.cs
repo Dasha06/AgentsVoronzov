@@ -45,7 +45,9 @@ public partial class MainWindow : Window
 
     private void CreateAgent_OnClick(object? sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        AddOrEditAgent window = new AddOrEditAgent();
+        window.Show();
+        Close();
     }
 
     private void EditButton_Click(object? sender, RoutedEventArgs e)

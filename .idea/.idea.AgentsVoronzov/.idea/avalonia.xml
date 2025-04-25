@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="AgentsVoronzov/AddOrEditAgent.axaml" value="AgentsVoronzov/AgentsVoronzov.csproj" />
         <entry key="AgentsVoronzov/MainWindow.axaml" value="AgentsVoronzov/AgentsVoronzov.csproj" />
       </map>
     </option>

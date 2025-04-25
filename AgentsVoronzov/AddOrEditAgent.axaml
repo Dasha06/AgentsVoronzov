@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="700"
+        x:Class="AgentsVoronzov.AddOrEditAgent"
+        Title="AddOrEditAgent">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Margin="20,10">
+            <Button Content="Назад" Click="ReturnHome_OnClick"></Button>
+        </StackPanel>
+        <StackPanel 
+            Orientation="Vertical"
+            DockPanel.Dock="Left"
+            Width="300" Margin="10">
+            <TextBlock Text="Наименование"/>
+            <TextBox Height="20" Width="150" x:Name="Name_TextBox" HorizontalAlignment="Left" Margin="0, 10"/>
+            <TextBlock Text="Приоритет"/>
+            <TextBox Height="20" Width="150" x:Name="Priority_TextBox" HorizontalAlignment="Left" Margin="0, 10"/>
+            <TextBlock Text="Адрес"/>
+            <TextBox Height="20" Width="150" x:Name="Adress_TextBox" HorizontalAlignment="Left" Margin="0, 10"/>
+            <TextBlock Text="ИНН"/>
+            <TextBox Height="20" Width="150" x:Name="INN_TextBox" HorizontalAlignment="Left" Margin="0, 10"/>
+            <TextBlock Text="КПП"/>
+            <TextBox Height="20" Width="150" x:Name="KPP_TextBox" HorizontalAlignment="Left" Margin="0, 10"/>
+            <TextBlock Text="ФИО директора"/>
+            <TextBox Height="20" Width="150" x:Name="FIODirector_TextBox" HorizontalAlignment="Left" Margin="0, 10"/>
+            <TextBlock Text="Номер телефона"/>
+            <TextBox Height="20" Width="150" x:Name="PhoneNumber_TextBox" HorizontalAlignment="Left" Margin="0, 10"/>
+            <TextBlock Text="Email"/>
+            <TextBox Height="20" Width="150" x:Name="Email_TextBox" HorizontalAlignment="Left" Margin="0, 10"/>
+            <Button Content="Добавить" Click="CreateAgent_OnClick"></Button>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Right" Margin="10">
+            
+            <TextBlock Text="Тип"/>
+            <ComboBox Name="Type_Combobox" SelectionChanged="SelectedType_ComboBox" Margin="0, 10"/>
+        </StackPanel>
+    </DockPanel>
+</Window>
