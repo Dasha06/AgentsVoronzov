@@ -29,8 +29,8 @@ public partial class MainWindow : Window
                 .Sum(ps => ps.ProductCount),  
             Skidka = CalculateDiscount(x.ProductSales.Sum(ps => ps.ProductCount)),
             Priority = x.Priority,
-            ImagePath = x.Logo,
-            Image = x.GetImage
+            ImagePath = x.Logo ?? "agents/agent_0.png",
+            // Image = x.GetImage
         }).ToList();
 
     public MainWindow()
